@@ -316,3 +316,12 @@ label{
 .register2:hover{
   background-color:#666;
 }
+
+.status-box {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #1e293b;
+    border-radius: 5px;
+}
