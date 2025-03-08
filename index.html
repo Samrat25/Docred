@@ -19,15 +19,73 @@
     <p id="status"></p>
 
     <script>
-        const contractAddress = "YOUR_CONTRACT_ADDRESS_HERE";
-        const contractABI = [ 
-            {"inputs":[{"internalType":"bytes32","name":"_hash","type":"bytes32"}],
-            "name":"registerDocument","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            
-            {"inputs":[{"internalType":"bytes32","name":"_hash","type":"bytes32"}],
-            "name":"verifyDocument","outputs":[{"internalType":"bool","name":"","type":"bool"}],
-            "stateMutability":"view","type":"function"}
-        ];
+        const contractAddress = "0xD1c6E9052562A01d84244ef391c968B09d05DB3f";
+        const contractABI = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "DocumentRegistered",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "verified",
+				"type": "bool"
+			}
+		],
+		"name": "DocumentVerified",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "registerDocument",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "verifyDocument",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
 
         let web3;
         let contract;
