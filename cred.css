@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #f9fafb;
     color: #333;
     margin: 0;
@@ -75,7 +75,7 @@ header {
 /* Hero Section */
 .hero {
     padding: 6rem 2rem;
-    background-color: #2563eb;
+    background-color: #000000;
     color: #fff;
 }
 
@@ -88,7 +88,7 @@ header {
 }
 
 .hero-text {
-    flex: 1;
+    text-align: left;
 }
 
 .hero-text h1 {
@@ -206,7 +206,7 @@ header {
     margin-bottom: 1.5rem;
 }
 
-label {
+.credentials label {
     display: block;
     font-size: 1rem;
     font-weight: 500;
@@ -284,4 +284,35 @@ label{
     font-size: 1rem;
     font-weight: 500;
 
+}
+
+.register {
+    background-color: #000000;
+    color: #fbfbfb;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    width : 300px;
+}
+
+.register:hover{
+  background-color:#666;
+}
+
+
+.register2 {
+    background-color: #000000;
+    color: #fbfbfb;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    width : 300px;
+}
+
+.register2:hover{
+  background-color:#666;
 }
