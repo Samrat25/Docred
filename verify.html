@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Document Verification</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Blockchain Document Verification</h2>
+    <input type="file" id="fileInput">
+    <button onclick="registerDocument()">Register Document</button>
+    <button onclick="verifyDocument()">Verify Document</button>
+    <p id="status"></p>
+
+    <script>
+        const contractAddress = "0xD1c6E9052562A01d84244ef391c968B09d05DB3f";
+        const contractABI = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "DocumentRegistered",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "verified",
+				"type": "bool"
+			}
+		],
+		"name": "DocumentVerified",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "registerDocument",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "verifyDocument",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+        let web3;
+        let contract;
+
+        async function connectWeb3() {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                await window.ethereum.request({ method: "eth_requestAccounts" });
+                const accounts = await web3.eth.getAccounts();
+                contract = new web3.eth.Contract(contractABI, contractAddress);
+                console.log("Connected to Web3!");
+            } else {
+                alert("Please install MetaMask!");
+            }
+        }
+
+        function getFileHash(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const crypto = window.crypto || window.msCrypto;
+                    const buffer = new TextEncoder().encode(event.target.result);
+                    crypto.subtle.digest("SHA-256", buffer).then(hash => {
+                        resolve('0x' + Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, "0")).join(""));
+                    }).catch(reject);
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        async function registerDocument() {
+            const file = document.getElementById("fileInput").files[0];
+            if (!file) {
+                alert("Please select a file.");
+                return;
+            }
+
+            const hash = await getFileHash(file);
+            const accounts = await web3.eth.getAccounts();
+            contract.methods.registerDocument(hash).send({ from: accounts[0] })
+                .on("transactionHash", function (hash) {
+                    document.getElementById("status").innerText = "Transaction sent: " + hash;
+                })
+                .on("receipt", function (receipt) {
+                    document.getElementById("status").innerText = "Document registered successfully!";
+                })
+                .on("error", function (error) {
+                    console.error(error);
+                    alert("Error registering document.");
+                });
+        }
+
+        async function verifyDocument() {
+            const file = document.getElementById("fileInput").files[0];
+            if (!file) {
+                alert("Please select a file.");
+                return;
+            }
+
+            const hash = await getFileHash(file);
+            contract.methods.verifyDocument(hash).call()
+                .then(result => {
+                    document.getElementById("status").innerText = result ? "Document is verified ✅" : "Document not found ❌";
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert("Error verifying document.");
+                });
+        }
+
+        window.onload = connectWeb3;
+    </script>
+
+</body>
+</html>

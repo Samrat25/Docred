@@ -2,162 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blockchain Document Verification</title>
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        input, button { margin: 10px; padding: 10px; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Document Verification System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
 </head>
-<body>
+<body class="bg-gray-50 font-sans">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <nav class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">                        <img class="h-8 w-auto" href="index.html" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo">
+                        <span class="ml-2 text-xl font-semibold text-gray-900">DocVerify</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-custom font-medium">Home</a>
+                    <a href="credetion.html" class="text-gray-500 hover:text-custom font-medium">Credentials</a>
+                    <a href="verify.html" class="text-gray-500 hover:text-custom font-medium">Verify</a>
+                    <button src="signup.html" class="!rounded-button bg-custom text-white px-4 py-2 font-medium hover:bg-blue-200 hover:text-black" >Get Started</button>
+                </div>            </div>
+        </nav>
+    </header>
 
-    <h2>Blockchain Document Verification</h2>
-    <input type="file" id="fileInput">
-    <button onclick="registerDocument()">Register Document</button>
-    <button onclick="verifyDocument()">Verify Document</button>
-    <p id="status"></p>
+    <main class="mt-16">
+        <section class="relative bg-gray-900 py-32">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">                <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                    <div class="lg:col-span-6">
+                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">                            Secure Document Verification Made Simple
+                        </h1>
+                        <p class="mt-6 text-xl text-gray-300">                            Fast, reliable, and secure verification for all your important documents. Get started in minutes with our advanced verification system.
+                        </p>                        <div class="mt-10 flex gap-4">
+                            <button class="!rounded-button bg-custom text-white px-6 py-3 font-medium text-lg">Upload Document</button>
+                            <button class="!rounded-button bg-white text-gray-900 px-6 py-3 font-medium text-lg">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="mt-12 lg:mt-0 lg:col-span-6">
+                        <img src="https://creatie.ai/ai/api/search-image?query=A 3D vector-style image with a clean, solid background color showing a modern document verification process with floating papers and digital elements, featuring a minimalist design style&width=600&height=400&orientation=landscape&removebg=true&flag=3e5ed5cc-fafe-46f4-9810-172ec3bbe1db" alt="Hero Image" class="w-full object-cover rounded-lg shadow-xl">                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        const contractAddress = "0xD1c6E9052562A01d84244ef391c968B09d05DB3f";
-        const contractABI = [
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "hash",
-				"type": "bytes32"
-			}
-		],
-		"name": "DocumentRegistered",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "hash",
-				"type": "bytes32"
-			},
-			{
-				"indexed": false,
-				"internalType": "bool",
-				"name": "verified",
-				"type": "bool"
-			}
-		],
-		"name": "DocumentVerified",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "_hash",
-				"type": "bytes32"
-			}
-		],
-		"name": "registerDocument",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "_hash",
-				"type": "bytes32"
-			}
-		],
-		"name": "verifyDocument",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
+        <section class="py-24 bg-white">            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-900">How It Works</h2>
+                    <p class="mt-4 text-xl text-gray-600">Simple steps to verify your documents</p>
+                </div>                <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+                    <div class="relative p-8 bg-white border border-gray-200 rounded-lg">                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-custom text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-semibold">1</div>
+                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Upload Document</h3>
+                        <p class="mt-4 text-gray-600">Upload your document in any common format. We support PDF, JPG, PNG and more.</p>
+                    </div>
+                    <div class="relative p-8 bg-white border border-gray-200 rounded-lg">                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-custom text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-semibold">2</div>
+                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Verification Process</h3>
+                        <p class="mt-4 text-gray-600">Our system automatically verifies the authenticity of your document.</p>
+                    </div>
+                    <div class="relative p-8 bg-white border border-gray-200 rounded-lg">                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-custom text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-semibold">3</div>
+                        <h3 class="mt-4 text-xl font-semibold text-gray-900">Get Results</h3>
+                        <p class="mt-4 text-gray-600">Receive instant verification results with detailed analysis report.</p>
+                    </div>
+                </div>
+            </div>        </section>
 
-        let web3;
-        let contract;
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">                    <h2 class="text-3xl font-bold text-gray-900">Key Features</h2>
+                    <p class="mt-4 text-xl text-gray-600">What makes our verification system stand out</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">                            <i class="fas fa-shield-alt text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-semibold text-gray-900">Secure Verification</h3>
+                        <p class="mt-4 text-gray-600">Advanced encryption and security measures to protect your documents.</p>                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">                            <i class="fas fa-bolt text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-semibold text-gray-900">Fast Processing</h3>
+                        <p class="mt-4 text-gray-600">Get verification results within minutes, not hours or days.</p>                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">                            <i class="fas fa-file-alt text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-semibold text-gray-900">Multiple Formats</h3>
+                        <p class="mt-4 text-gray-600">Support for all common document formats and types.</p>                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">                            <i class="fas fa-clock text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-semibold text-gray-900">24/7 Access</h3>
+                        <p class="mt-4 text-gray-600">Verify documents anytime, anywhere with our online system.</p>                    </div>
+                </div>
+            </div>
+        </section>
 
-        async function connectWeb3() {
-            if (window.ethereum) {
-                web3 = new Web3(window.ethereum);
-                await window.ethereum.request({ method: "eth_requestAccounts" });
-                const accounts = await web3.eth.getAccounts();
-                contract = new web3.eth.Contract(contractABI, contractAddress);
-                console.log("Connected to Web3!");
-            } else {
-                alert("Please install MetaMask!");
-            }
-        }
+        <section class="py-24 bg-white">            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gray-900 rounded-2xl overflow-hidden">                    <div class="px-6 py-16 sm:px-12 lg:px-16">
+                        <div class="max-w-3xl mx-auto text-center">                            <h2 class="text-3xl font-bold tracking-tight text-white">Ready to get started?</h2>
+                            <p class="mt-4 text-lg text-gray-300">Join thousands of users who trust our platform for their document verification needs.</p>
+                            <button class="!rounded-button mt-8 bg-white text-gray-900 px-8 py-3 font-medium text-lg">Start Verifying Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    </main>
 
-        function getFileHash(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    const crypto = window.crypto || window.msCrypto;
-                    const buffer = new TextEncoder().encode(event.target.result);
-                    crypto.subtle.digest("SHA-256", buffer).then(hash => {
-                        resolve('0x' + Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, "0")).join(""));
-                    }).catch(reject);
-                };
-                reader.readAsText(file);
-            });
-        }
-
-        async function registerDocument() {
-            const file = document.getElementById("fileInput").files[0];
-            if (!file) {
-                alert("Please select a file.");
-                return;
-            }
-
-            const hash = await getFileHash(file);
-            const accounts = await web3.eth.getAccounts();
-            contract.methods.registerDocument(hash).send({ from: accounts[0] })
-                .on("transactionHash", function (hash) {
-                    document.getElementById("status").innerText = "Transaction sent: " + hash;
-                })
-                .on("receipt", function (receipt) {
-                    document.getElementById("status").innerText = "Document registered successfully!";
-                })
-                .on("error", function (error) {
-                    console.error(error);
-                    alert("Error registering document.");
-                });
-        }
-
-        async function verifyDocument() {
-            const file = document.getElementById("fileInput").files[0];
-            if (!file) {
-                alert("Please select a file.");
-                return;
-            }
-
-            const hash = await getFileHash(file);
-            contract.methods.verifyDocument(hash).call()
-                .then(result => {
-                    document.getElementById("status").innerText = result ? "Document is verified ✅" : "Document not found ❌";
-                })
-                .catch(error => {
-                    console.error(error);
-                    alert("Error verifying document.");
-                });
-        }
-
-        window.onload = connectWeb3;
-    </script>
-
+    <footer class="bg-gray-900">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">                <div>
+                    <img class="h-8" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo">                    <p class="mt-4 text-gray-400">Secure and reliable document verification for everyone.</p>
+                </div>                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Quick Links</h3>                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Upload</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Verify</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Legal</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Cookie Policy</a></li>
+                    </ul>                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Connect</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">                                <i class="fab fa-twitter w-6"></i>
+                                <span>Twitter</span>
+                            </a>                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">                                <i class="fab fa-linkedin w-6"></i>
+                                <span>LinkedIn</span>
+                            </a>                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">                                <i class="fab fa-facebook w-6"></i>
+                                <span>Facebook</span>
+                            </a>                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8">                <p class="text-base text-gray-400 text-center">&copy; 2024 DocVerify. All rights reserved.</p>
+            </div>        </div>
+    </footer>
 </body>
 </html>

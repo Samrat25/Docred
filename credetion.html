@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document Verification System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+	<link rel="stylesheet" href="cred.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body >
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo" />
+                    <span>DocVerify</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="credentials.html">Credentials</a>
+                    <a href="verify.html" class="active">Verify</a>
+                    <button class="btn-primary">Get Started</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>Secure Document Verification Made Simple</h1>
+                    <p>Fast, reliable, and secure verification for all your important documents.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Add Credentials</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://creatie.ai/ai/api/search-image?query=A 3D vector-style image with a clean, solid background color showing a modern document verification process with floating papers and digital elements, featuring a minimalist design style&width=600&height=400&orientation=landscape&removebg=true&flag=3e5ed5cc-fafe-46f4-9810-172ec3bbe1db&flag=cb8dd464-94c1-4a55-90ad-40a35e952156&flag=e253d233-98dc-4a20-b18a-f3a9d602e2b7&flag=c86d7d8d-0654-4cdf-a282-f71d56d2d75e&flag=05bd79ae-cdde-41d4-b680-e19dbd9d809b&flag=3020f5f1-fd86-4779-b995-549bd3a88574" alt="Hero Image" />
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="section-container">
+                <h2>How It Works</h2>
+                <p>Simple steps to verify your documents</p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Upload Document</h3>
+                        <p>Upload your document in any common format.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Verification Process</h3>
+                        <p>Our system verifies the authenticity of your document.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Get Results</h3>
+                        <p>Receive instant verification results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="credentials">
+            <div class="section-container">
+	
+    <h2>Student Credential Verification</h2>
+    
+    <label for="studentName">Student Name: </label>
+    <input type="text" id="studentName" placeholder="Enter Student Name"><br><br>
+    
+    <label for="studentID">Student ID: </label>
+    <input type="text" id="studentID" placeholder="Enter Student ID"><br><br>
+    
+    <label for="degree">Degree: </label>
+    <input type="text" id="degree" placeholder="Enter Degree"><br><br>
+    
+    <button onclick="registerCredential()">Register Student Credential</button>
+    <button onclick="verifyCredential()">Verify Student Credential</button>
+    
+    <p id="status"></p>
+</div>
+</section>
+	<footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo" />
+                <p>Secure and reliable document verification for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Credentials</a></li>
+                    <li><a href="#">Verify</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 DocVerify. All rights reserved.</p>
+        </div>
+    </footer>
+	
+
+    <script>
+        const contractAddress = "0x95755Ba7FC84f3012FE66c4891d3554b279D3828";
+        const contractABI = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "studentID",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "studentName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "degree",
+				"type": "string"
+			}
+		],
+		"name": "StudentRegistered",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_studentName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_studentID",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_degree",
+				"type": "string"
+			}
+		],
+		"name": "registerStudent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "studentCredentials",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "studentName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "degree",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "isRegistered",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_studentID",
+				"type": "string"
+			}
+		],
+		"name": "verifyStudent",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+        let web3;
+        let contract;
+
+        async function connectWeb3() {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                await window.ethereum.request({ method: "eth_requestAccounts" });
+                const accounts = await web3.eth.getAccounts();
+                contract = new web3.eth.Contract(contractABI, contractAddress);
+                console.log("Connected to Web3!");
+            } else {
+                alert("Please install MetaMask!");
+            }
+        }
+
+        async function registerCredential() {
+            const studentName = document.getElementById("studentName").value;
+            const studentID = document.getElementById("studentID").value;
+            const degree = document.getElementById("degree").value;
+
+            if (!studentName || !studentID || !degree) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            const accounts = await web3.eth.getAccounts();
+            contract.methods.registerStudent(studentName, studentID, degree).send({ from: accounts[0] })
+                .on("transactionHash", function (hash) {
+                    document.getElementById("status").innerText = "Transaction sent: " + hash;
+                })
+                .on("receipt", function (receipt) {
+                    document.getElementById("status").innerText = "Student credentials registered successfully!";
+                })
+                .on("error", function (error) {
+                    console.error(error);
+                    alert("Error registering student credentials.");
+                });
+        }
+
+        async function verifyCredential() {
+            const studentID = document.getElementById("studentID").value;
+            if (!studentID) {
+                alert("Please enter a student ID.");
+                return;
+            }
+
+            contract.methods.verifyStudent(studentID).call()
+                .then(result => {
+                    document.getElementById("status").innerText = result ? "Student credentials verified ✅" : "Student credentials not found ❌";
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert("Error verifying student credentials.");
+                });
+        }
+
+        window.onload = connectWeb3;
+    </script>
+
+</body>
+</html>
