@@ -9,6 +9,20 @@
     <link rel="icon" href="/icons/airplane.svg" />
     <link rel="icon" href="https://img.icons8.com/?size=100&id=48179&format=png&color=000000">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+          /* circle styles */
+          .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 24px;
+            background-color: rgb(255, 0, 0);
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+          }
+        </style>  
     </head>
   <body>
     <div class="container">
@@ -33,6 +47,19 @@
               <input type="submit" value="Login" class="btn solid" />
             </div>
             <a href="/forgot_password.html" style="text-decoration: none; color: black;"><p>Forgot Password?</p></a>
+            <p class="social-text">OR<br>Sign in with social platforms</p>
+
+            <div class="social-media">
+              <button class="social-icon" id="microsoft-icon">
+                <img src="img/Microsoft_Logo.png" alt="Microsoft Icon" style="width: 25px; height: 25px;">
+              </button>
+              <button class="social-icon" id="google-icon">
+
+                <img src="./img/google.png" alt="Google Icon" style="width: 30px; height: 30px;">
+              </button>
+              <button class="social-icon" id="githubSignInBtn">
+                <i class="fab fa-github"></i>
+              </button>
             </div>
           </form>
 <form action="#" class="sign-up-form" onsubmit="return validateForm()">
@@ -201,6 +228,16 @@
     <script type="module" src="SignIn-Up-withGithub.js"></script>
 
   <div class="gtranslate_wrapper"></div>
+
+  <script>
+
+  window.gtranslateSettings = {
+    "default_language":"en",
+    "detect_browser_language":true,
+    "wrapper_selector":".gtranslate_wrapper"
+  }
+
+  </script>
 
   <script
     src="https://cdn.gtranslate.net/widgets/latest/float.js"
