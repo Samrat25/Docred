@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -29,6 +29,11 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 400px;
     text-align: center;
+    
+}
+.box h2{
+    color:#000000;
+    font-weight: bold;
 }
 
 /* Upload Section */
@@ -44,7 +49,7 @@ input[type="file"] {
 
 /* Button Styling */
 .btn {
-    background-color: #2563eb;
+    background-color: #000000;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -55,15 +60,15 @@ input[type="file"] {
 }
 
 .btn:hover {
-    background-color: #1e40af;
+    background-color: #07a6e0;
 }
 
 .btn-verify {
-    background-color: #059669;
+    background-color: #000000;
 }
 
 .btn-verify:hover {
-    background-color: #047857;
+    background-color: #07a6e0;
 }
 
 /* Status Box */
@@ -76,3 +81,10 @@ input[type="file"] {
     border-radius: 5px;
 }
 
+.hoverr:hover{
+color:black;0
+}
+
+.btn-primary a{
+    color:#f4f4f4
+}
