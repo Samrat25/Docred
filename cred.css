@@ -311,6 +311,8 @@ label{
     cursor: pointer;
     font-weight: 500;
     width : 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .register2:hover{
