@@ -12,9 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
 	<link rel="stylesheet" href="cred.css">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        input, button { margin: 10px; padding: 10px; }
-    </style>
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
 </head>
 <body >
     <header>
@@ -25,11 +24,12 @@
                     <span>DocVerify</span>
                 </div>
                 <div class="nav-links">
-                    <a href="index.html">Home</a>
+                    
+                    <a href="index.html" class="non-active">Home</a>
                     <a href="credentials.html" class="active">Credentials</a>
-                    <a href="verify.html" >Verify</a>
-                    <a href="issue.html" >Issue Cert</a>
-                    <button class="btn-primary"><a href="auth.html">    Get Started</a></button>
+                    <a href="verify.html" class="non-active" >Verify</a>
+                    <button class="btn-primary">Get Started</button>
+            
                 </div>
             </div>
         </nav>
@@ -77,16 +77,15 @@
         </section>
     <section class="credentials">
             <div class="section-container">
-	
-    <h2>Student Credential Verification</h2>
+    <h2 >Student Credential Verification</h2>
     
-    <label for="studentName">Student Name: </label>
+    <label for="studentName" class="cre1">Student Name: </label>
     <input type="text" id="studentName" placeholder="Enter Student Name"><br><br>
     
-    <label for="studentID">Student ID: </label>
+    <label for="studentID" class="cre1">Student ID: </label>
     <input type="text" id="studentID" placeholder="Enter Student ID"><br><br>
     
-    <label for="degree">Degree: </label>
+    <label for="degree" class="cre1">Degree: </label>
     <input type="text" id="degree" placeholder="Enter Degree"><br><br>
     
     <button class="register" onclick="registerCredential()">Register Student Credential</button>

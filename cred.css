@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Poppins, sans-serif;
     background-color: #f9fafb;
     color: #333;
     margin: 0;
@@ -52,14 +52,20 @@ header {
     text-decoration: none;
     color: #666;
     font-weight: 500;
+    ;
 }
 
 .nav-links a.active {
-    color: #2563eb;
+    color: #000000;
 }
 
+.non-active:hover{
+    color:#000000;
+}
+
+
 .btn-primary {
-    background-color: #2563eb;
+    background-color: #000000;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
@@ -69,7 +75,7 @@ header {
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #2193c0;
 }
 
 /* Hero Section */
@@ -142,11 +148,12 @@ header {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    color: #000000;
 }
 
 .how-it-works p {
     font-size: 1.25rem;
-    color: #666;
+    color: #000000;
     margin-bottom: 2rem;
 }
 
@@ -186,7 +193,7 @@ header {
 }
 
 .step p {
-    color: #666;
+    color: #000000;
 }
 
 /* Credentials Section */
@@ -200,6 +207,7 @@ header {
     font-weight: 700;
     margin-bottom: 1rem;
     text-align: center;
+    color: #000000;
 }
 
 .form-group {
@@ -326,4 +334,7 @@ label{
     color: white;
     background-color: #1e293b;
     border-radius: 5px;
+}
+.cre1{
+    color:#000000;
 }
