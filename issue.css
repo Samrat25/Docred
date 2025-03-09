@@ -1,48 +1,130 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* Container */
 .container {
-    width: 60%;
-    margin: auto;
-    padding: 20px;
+    width: 90%;
+    max-width: 550px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
+/* Header */
 header {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     background-color: #4CAF50;
     color: white;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
 }
 
-.content {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Form Section */
+.form-container {
+    text-align: left;
 }
 
-form input, button {
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s ease;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* File Upload */
+.file-upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 2px dashed #4CAF50;
+    border-radius: 6px;
+    background: #f1f8f2;
+    cursor: pointer;
+    text-align: center;
+}
+
+.file-upload input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-p {
-    margin: 10px 0;
+button:hover {
+    background-color: #388e3c;
+}
+
+/* Result Section */
+.result-container {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #f1f1f1;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
 }
